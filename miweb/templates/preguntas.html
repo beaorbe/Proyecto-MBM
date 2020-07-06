@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block container %}
+<script>
+    $(document).ready(function(){
+        $('.tabs').tabs();
+    });
+    </script>
+    <div class= "row">
+        <div class="col s12 center align">
+            <img src="{%static 'img/virus.verde.jpg'%}" height="200"/>
+        </div>
+            Se desplegarán las preguntas
+        </div> 
+    </div> 
+</div>
+{% endblock %}

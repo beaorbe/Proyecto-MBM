@@ -1,0 +1,117 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block container %}
+<script>
+  $(document).ready(function(){
+    $('.modal').modal();
+    $('select').formSelect();
+  });
+</script>
+
+<div class="row">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <a
+        class="btn-floating btn-large waves-effect waves-light"
+        style="position: fixed; right: 30px; bottom: 30px; background-color: #275DAD;"
+        href="#modal1"
+   >
+        <i class="material-icons">
+            comment             
+        </i>
+    </a>
+ 
+    <a 
+        class="waves-effect waves-light btn modal-trigger"
+        href="#modal1">Comentar</a>
+
+    
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+
+            <h4>Comentario</h4>
+            <div>
+                <form id="form1" action="{% url 'comentarios' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row" style="margin-bottom: 0px;">
+                        <div class="input-field col s5 offset-s1">
+                            <input id="titulo" name="titulo" type="text"/>
+                            <label for="titulo">Titulo del comentario</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row" style="margin-bottom: 0px;">
+                        <div class="input-field col s10 offset-s1">
+                            <textarea id="comentario" name="comentario" class="materialize-textarea" type="text"></textarea>
+                            <label for="comentario">Comentario</label>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom: 0px;">
+                        <div class="input-field col s5 offset-s1">
+                            <input id="autor" name="autor" type="text"/>
+                            <label for="autor">Nombre</label>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom: 0px;">
+                        <div class="input-field col s5 offset-s1">
+                            <select id="estrellas" name="estrellas">  
+                                <option value="1">1&#9734</option> 
+                                <option value="2">2 &#9734;&#9734;</option> 
+                                <option value="3">3 &#9734;&#9734;&#9734;</option> 
+                                <option value="4">4 &#9734;&#9734;&#9734;&#9734;</option> 
+                                <option value="5">5 &#9734;&#9734;&#9734;&#9734;&#9734;</option> 
+                            </select>
+                            <label>Estrellas</label>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom: 0px;">
+                        <div class="input-field col s12" style="text-align: center;">
+                            <button
+
+                                class="waves-effect waves-light btn"
+                                type="submit"
+                                name="submit"
+                                style="background-color:#A4C841;"
+                            >
+                                Enviar comentario
+                            </button>
+                        </div>
+                    </div>   
+                </form>
+            </div>
+    </div>
+
+
+
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>    
+<div class="col s8 offset-s2">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">
+                    Este seria el titulo del comentario
+            </span>
+            <i class="material-icons">star</i>
+            <i class="material-icons">star</i>
+            <i class="material-icons">star</i>
+            <i class="material-icons">star</i>
+            <i class="material-icons">star_border</i>
+            <div style="margin-bottom: 20px;" class="divider"></div>
+            <p>Este es un texto ejemplo del comentario. Este es un texto ejemplo del comentario. Este es un texto ejemplo del comentario.
+                    Este es un texto ejemplo del comentario.Este es un texto ejemplo del comentario.Este es un texto ejemplo del comentario.Este es un texto ejemplo del comentario.
+            </p>
+            <div style="margin-top: 20px; margin-bottom: 10px;" class="divider"></div>
+            <div class="chip">
+                    Nombre del que comenta
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+       

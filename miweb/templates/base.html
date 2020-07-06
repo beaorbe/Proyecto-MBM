@@ -1,0 +1,36 @@
+{%load static%}
+<!DOCTYPE html> 
+<html lang='es' style='height: 100%;'>
+<head>
+    <title>Probabilidades Covid-19</title>
+    <link herf= "http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type= "text/css" rel="stylesheet" href="{% static 'css/materialize.min.css'%}">
+    <script type= "text/javascript" src="{%static 'js/jquery.js' %}"></script>
+    <script type= "text/javascript" src="{%static 'js/materialize.min.js' %}"></script>
+
+</head>
+
+
+<body style="background-color:#F5F3F6;" class="ACDD92">
+    <nav style="background-color: #A4C841;" style="position:fixed; z-index:999;">
+        <div class="nav-wrapper">
+          <a  href="#" class="brand-logo center">MBM 19</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li class="{% if template_padre == 'index' %}active{% else %}{% endif %}"><a href="{% url 'index' %}">Intro</a></li>
+          <li class="{% if template_padre == 'preguntas' %}active{% else %}{% endif %}"><a href="{% url 'preguntas' %}">Preguntas</a></li>
+          <li class="{% if template_padre == 'informacion' %}active{% else %}{% endif %}"><a href="{% url 'informacion'%}">Informacion</a></li>
+          <li class="{% if template_padre == 'estadistica' %}active{% else %}{% endif %}"><a href="{% url 'estadistica'%}">Estadisticas</a></li>
+          <li class="{% if template_padre == 'comentarios' %}active{% else %}{% endif %}"><a href="{% url 'comentarios'%}">Comentarios</a></li>
+
+            
+          </ul>
+        </div>
+    </nav>
+  <div class="container" style="padding-top: 64px;">
+        {% block container %}
+        {% endblock %}
+  </div>
+</body>
+
+
+</html>
